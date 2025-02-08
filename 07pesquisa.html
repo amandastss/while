@@ -1,0 +1,70 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: PESQUISA DE IDADE
+    Foi feita uma pesquisa entre os habitantes de uma região. Foram coletados os dados de idade, sexo (M/F) e salário. Faça um programa que calcule e mostre:
+
+    a) A média dos salários do grupo;
+    b) A maior e a menor idade do grupo;
+    c) A quantidade de mulheres na região;
+    d) A idade e o sexo da pessoa que possui o menor salário;
+
+    Finalize a entrada de dados ao ser digitada uma idade negativa.
+    */
+
+        // Inicializando as variáveis
+        let mulheres = 0;
+        let idade, sexo, salario;
+        let totalSalarios = 0;
+        let maiorIdade = -Infinity;
+        let menorIdade = Infinity;
+        let menorSalario = Infinity;
+        let idadeMenorSalario = 0;
+        let sexoMenorSalario = "";
+        let totalPessoas = 0;
+
+        // PROCESSAMENTO
+        while (true) {
+            // Entrada de dados
+            idade = Number(prompt("Informe a sua idade:"));
+            if (idade < 0) {
+                break;  
+            }
+            
+            sexo = prompt("Informe o seu sexo (M/F):").toUpperCase();
+            salario = Number(prompt("Informe o seu salário:"));
+
+            totalSalarios += salario;
+            totalPessoas++;
+
+            if (sexo === "F") {
+                mulheres++;
+            }
+
+            if (idade > maiorIdade) {
+                maiorIdade = idade;
+            }
+
+            if (idade < menorIdade) {
+                menorIdade = idade;
+            }
+
+            if (salario < menorSalario) {
+                menorSalario = salario;
+                idadeMenorSalario = idade;
+                sexoMenorSalario = sexo;
+            }
+        }
+
+   
+        let mediaSalarios = totalSalarios / totalPessoas;
+        let quantidadeHomens = totalPessoas - mulheres;
+
+       
+        alert(`Média dos salários do grupo: R$ ${mediaSalarios.toFixed(2)}`);
+        alert(`Maior idade do grupo: ${maiorIdade}`);
+        alert(`Menor idade do grupo: ${menorIdade}`);
+        alert(`Quantidade de mulheres na região: ${mulheres}`);
+        alert(`Quantidade de homens na região: ${quantidadeHomens}`);
+        alert(`Idade e sexo da pessoa com o menor salário: ${idadeMenorSalario} anos, ${sexoMenorSalario}`);
+    </script>

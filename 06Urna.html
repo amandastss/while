@@ -20,9 +20,63 @@
     */
 
     //ENTRADA
+    let votosJoaozinho = 0;
+        let votosMariazinha = 0;
+        let votosNulos = 0;
+        let votosBrancos = 0;
+        let totalVotos = 0;
+        
+        while (true) {
+            let voto = parseInt(prompt("Digite seu voto (1 para Joãozinho, 2 para Mariazinha, 3 para Nulo, 4 para Branco):"));
+            
+            // Condicional para encerrar o loop quando o voto for 0
+            if (voto === 0) {
+                break;
+            }
+            
+            // Contabilizando os votos
+            if (voto === 1) {
+                votosJoaozinho++;
+            } else if (voto === 2) {
+                votosMariazinha++;
+            } else if (voto === 3) {
+                votosNulos++;
+            } else if (voto === 4) {
+                votosBrancos++;
+            } else {
+                alert("Opção inválida! Digite novamente.");
+                continue;
+            }
+            
+            // Incrementa o total de votos a cada votação válida
+            totalVotos++;
+        }
+        
+        // Calculando porcentagens
+        let porcentagemNulos = (votosNulos / totalVotos) * 100;
+        let porcentagemBrancos = (votosBrancos / totalVotos) * 100;
+        
+        // Determinando o vencedor
+        let vencedor = "";
+        if (votosJoaozinho > votosMariazinha) {
+            vencedor = "Joãozinho";
+        } else if (votosMariazinha > votosJoaozinho) {
+            vencedor = "Mariazinha";
+        } else {
+            vencedor = "Empate entre Joãozinho e Mariazinha";
+        }
+
+        // Exibindo os resultados
+        alert("Resultados da votação:\n");
+        alert(`1. Candidato Joãozinho: ${votosJoaozinho} votos`);
+        alert(`2. Candidato Mariazinha: ${votosMariazinha} votos`);
+        alert(`3. Nulos: ${votosNulos} votos`);
+        alert(`4. Brancos: ${votosBrancos} votos`);
+        alert(`\nPorcentagem de votos nulos: ${porcentagemNulos.toFixed(2)}%`);
+        alert(`Porcentagem de votos brancos: ${porcentagemBrancos.toFixed(2)}%`);
+        alert(`Candidato vencedor: ${vencedor}`);
 
 
-    //PROCESSAMENTO
 
 
     //SAÍDA
